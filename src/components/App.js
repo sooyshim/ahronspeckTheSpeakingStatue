@@ -4,19 +4,20 @@ import MessageGenerator from './MessageGenerator.js';
 import BulletinBoard from './BulletinBoard.js';
 import Footer from './Footer.js';
 import firebase from '../firebase.js';
-import '../styles/App.css';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       messages: [],
-      value: "I, Ahronspeck,"
+      value: "",
+      showError: false
     };
   }
 
   //when mounted, check the DB for data and setState
   componentDidMount() {
+
     const dbRef = firebase.database().ref();
 
     dbRef.on("value", response => {
@@ -38,6 +39,15 @@ class App extends React.Component {
     });
   }
 
+// componentDidCatch(error, info) {
+//   // display fallback UI
+//   this.setState({
+//     hasError: true
+//   });
+
+//   logErrorToMyService(error, info)
+// }
+
 addNewInput = (newMessage) => {
   //??? is this necessary???
   let currentInput = this.state.value;
@@ -52,29 +62,36 @@ addNewInput = (newMessage) => {
 updateDB = (event) => {
   event.preventDefault();
 
-  const dbRef = firebase.database().ref();
-
-  dbRef.push(this.state.value);
+  if (this.state.value) {
+    const dbRef = firebase.database().ref();
+    dbRef.push(this.state.value);
+  } else {
+    this.setState({
+      showError: true
+    })
+  }
 
   this.setState({
-    value: "I, Ahronspeck,"
+    value: ""
+  })
+}
+
+toggleErrorMessage = () => {
+  this.setState({
+    showError: !this.state.showError
   })
 }
 
   render() {
     return (
-      <div className="App">
-        {/* Is this a good syntax? */}
-        <header>
-          <div className="wrapper">
-            <Header />
-            <MessageGenerator
-              addNewInput={this.addNewInput}
-              updateDB={this.updateDB}
-              value={this.state.value}
-            />
-          </div>
-        </header>
+      <div className="app">
+        <Header
+          addNewInput={this.addNewInput}
+          updateDB={this.updateDB}
+          value={this.state.value}
+          showError={this.state.showError}
+          toggleErrorMessage={this.toggleErrorMessage}
+        />
         <BulletinBoard messages={this.state.messages} />
         <Footer />
       </div>

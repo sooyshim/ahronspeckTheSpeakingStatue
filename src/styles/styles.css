@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Schoolbell|Walter+Turncoat&display=swap');
+
+:root {
+  --black: #333;
+  --white: #fbfbfb;
+  --yellow: #d0b38b;
+  --blue: #07183B;
+
+  --lgFont: 'Walter Turncoat', cursive;
+  --smFont: 'Schoolbell', cursive;
+}
+
+/* #f5f8ff */
+
+body {
+  margin: 0;
+  font-size: 125%;
+  color: var(--black);
+  font-family: var(--smFont);
+
+}
+
+.app {
+  background-color: #fefeff;
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%239294ac' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+h1 {
+  font-family: var(--lgFont);
+  color: var(--blue);
+}
+
+
+
+h1,
+.headerContent p {
+  text-align: center;
+}
+
+header p {
+  text-shadow: 0.5px 0.5px 1px var(--black);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 300px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border: 1px solid #000;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black)
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+header {
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+header .wrapper {
+  /* height: 100vh; */
+  position: relative;
+}
+
+picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: -1;   */
+}
+
+picture .smallImg {
+  /* border: 1px solid #000; */
+  width: 25%;
+}
+
+.headerContent {
+  /* border: 1px solid #000; */
+  padding-top: 80px;
+  /* background: linear-gradient(to left, rgba(208, 179, 139, 0.7), rgba(208, 179, 139, 0.7)); */
+}
+
+.headerContent h1 {
+  font-size: 3.0rem;
+  text-shadow: 1px 1px 10px var(--blue);
+}
+
+.headerContent p {
+  font-size: 1.6rem;
+}
+
+.subTitle {
+  margin-bottom: 0;
+}
+
+label {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.inputArea {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  border: 1px solid #000;
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  padding: 50px 0 50px 50px;
+  outline: 0;
+  background-color: transparent;
+  font-size: 2.0rem;
+  font-family: var(--smFont);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.parchemin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 570px;
+  z-index: 0;
+}
+
+textarea::placeholder {
+  color: gray;
+}
+
+/* NEED TO STYLE! */
+textarea:valid {
+  /* color: green; */
+}
+
+textarea:invalid {
+  /* background: palegoldenrod; */
+}
+
+button {
+  width: 100%;
+  height: 70px;
+  border: none;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 2.0rem;
+  font-family: var(--lgFont);
+}
+
+/* Error Message style */
+.errorMessage {
+  box-shadow: inset 0 0 10px var(--black);
+  position: absolute;
+  left: 0;
+  top: 60%;
+  translate: transformY(-60%);
+  background-color: #fff;
+}
+
+.errorMessage h1 {
+  font-size: 2.4rem;
+  padding: 5px;
+}
+
+/* Main style */
+
+main {
+  padding: 50px 0;
+}
+
+ul {
+  width: 100%;
+}
+
+li {
+  box-shadow: inset 0 0 10px var(--black);
+  border-radius: 5px;
+  min-height: 250px;
+  position: relative;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--yellow);
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+}
+
+footer {
+  padding: 3px 0;
+  background-color: var(--black);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+footer,
+footer a {
+  color: var(--white);
+}
+
+footer p {
+  margin-top: 0;
+}
