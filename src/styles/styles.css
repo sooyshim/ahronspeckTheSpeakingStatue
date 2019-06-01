@@ -1,10 +1,18 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
+
 @import url('https://fonts.googleapis.com/css?family=Schoolbell|Walter+Turncoat&display=swap');
 
 :root {
   --black: #333;
-  --white: #fbfbfb;
+  --white: #fefeff;
   --yellow: #d0b38b;
-  --blue: #07183B;
+  --blue: #323161;
 
   --lgFont: 'Walter Turncoat', cursive;
   --smFont: 'Schoolbell', cursive;
@@ -21,7 +29,7 @@ body {
 }
 
 .app {
-  background-color: #fefeff;
+  background-color: var(--white);
   background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%239294ac' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -99,9 +107,51 @@ picture .smallImg {
 
 .headerContent h1 {
   font-size: 3.0rem;
-  text-shadow: 1px 1px 10px var(--blue);
+  animation: blink 1.5s infinite linear;
+  color: var(--blue);
 }
 
+@keyframes blink {   
+
+  0% {
+    text-shadow:  -0.2rem -0.2rem 1rem var(--blue);
+  }
+  
+  19% {
+    text-shadow: 0.2rem 0.2rem 1rem var(--blue);
+  } 
+  
+  20% {
+    text-shadow: none;
+  }
+
+  21% {
+    text-shadow: 0 0 2rem blue;
+  }
+  
+  22% {
+    text-shadow: none;
+  }
+
+  23% {
+    text-shadow: 0 0 4rem blue;
+  }
+  
+  25% {
+    text-shadow: none;
+  }
+
+  50% {
+    text-shadow: 0 0 6rem blue;
+  }
+
+  75% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0 0 4rem blue;
+  }
+}
 .headerContent p {
   font-size: 1.6rem;
 }
@@ -117,21 +167,26 @@ label {
 
 .inputArea {
   position: relative;
-  height: 600px;
+  height: 770px;
   width: 100%;
   border: 1px solid #000;
 }
 
+textarea,
+.parchemin {
+  height: 750px
+}
 textarea {
   resize: none;
-  width: 80%;
-  padding: 50px 0 50px 50px;
+  border: none;
+  width: 100%;
+  padding: 10%;
   outline: 0;
   background-color: transparent;
   font-size: 2.0rem;
   font-family: var(--smFont);
   position: absolute;
-  top: 0;
+  top: 40px;
   left: 0;
   z-index: 1;
 }
@@ -141,7 +196,6 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  height: 570px;
   z-index: 0;
 }
 
@@ -152,29 +206,34 @@ textarea::placeholder {
 /* NEED TO STYLE! */
 textarea:valid {
   /* color: green; */
+  border: none;
 }
 
 textarea:invalid {
   /* background: palegoldenrod; */
 }
 
+.inputArea button {
+  z-index: 200;
+}
 button {
   width: 100%;
   height: 70px;
   border: none;
-  background-color: var(--black);
+  background-color: var(--blue);
   color: var(--white);
   font-size: 2.0rem;
   font-family: var(--lgFont);
 }
+
 
 /* Error Message style */
 .errorMessage {
   box-shadow: inset 0 0 10px var(--black);
   position: absolute;
   left: 0;
-  top: 60%;
-  translate: transformY(-60%);
+  top: 70%;
+  z-index: 100;
   background-color: #fff;
 }
 
@@ -194,7 +253,8 @@ ul {
 }
 
 li {
-  box-shadow: inset 0 0 10px var(--black);
+  box-shadow: inset 0 0 7px var(--black);
+  border: none;
   border-radius: 5px;
   min-height: 250px;
   position: relative;
@@ -205,9 +265,20 @@ li {
   overflow-wrap: break-word;
 }
 
+li img {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  width: 150px;
+  /* font-size: 2.5rem; */
+  /* filter: drop-shadow(0.7px 0.7px 5px rgba(0,0,0, 0.5)); */
+  color: var(--black);
+}
+
 footer {
   padding: 3px 0;
-  background-color: var(--black);
+  background-color: var(--blue);
   font-size: 0.9rem;
   text-align: center;
 }

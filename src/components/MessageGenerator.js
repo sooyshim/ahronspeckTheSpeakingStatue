@@ -1,6 +1,8 @@
 import React from 'react';
 import parchemin from "../styles/image/parchemin.png";
 
+
+
 class MessageGenerator extends React.Component {
   handleChange = event => {
     const userInput = event.target.value;
@@ -28,6 +30,7 @@ class MessageGenerator extends React.Component {
         <button
           onClick={event => {
             this.props.updateDB(event);
+            this.props.tick();
           }}
         >
           Post

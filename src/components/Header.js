@@ -3,6 +3,7 @@ import small from '../styles/image/small.png';
 import large from '../styles/image/large.png';
 import MessageGenerator from './MessageGenerator';
 import ErrorMessage from "./ErrorMessage.js";
+import ShowDeleteOption from "./ShowDeleteOption.js"
 
 class Header extends React.Component {
   render() {
@@ -27,20 +28,32 @@ class Header extends React.Component {
               Ahornspeck <br />
               The Speaking Statue
             </h1>
-            <p className="subTitle">  
+            <p className="subTitle">
               Inspired by the Talking Statues of Rome, this virtual space
               provides a room for public opinion.
             </p>
-            <p>Speak as if you are Ahornspeck, the speaking statue!</p>
+            <p>
+              Post your opinions as if you are Ahornspeck, the speaking
+              statue!
+            </p>
             <MessageGenerator
               addNewInput={this.props.addNewInput}
               updateDB={this.props.updateDB}
               value={this.props.value}
+              tick={this.props.tick}
             />
           </div>
           <ErrorMessage
             showError={this.props.showError}
             toggleErrorMessage={this.props.toggleErrorMessage}
+          />
+          <ShowDeleteOption
+            showDeleteOption={this.props.showDeleteOption}
+            minutes={this.props.minutes}
+            seconds={this.props.seconds}
+            removeInput={this.props.removeInput}
+            messages={this.props.messages}
+            stopTimer={this.props.stopTimer}
           />
         </div>
       </header>

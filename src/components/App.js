@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './Header.js';
-import MessageGenerator from './MessageGenerator.js';
 import BulletinBoard from './BulletinBoard.js';
 import Footer from './Footer.js';
 import firebase from '../firebase.js';
@@ -11,13 +10,16 @@ class App extends React.Component {
     this.state = {
       messages: [],
       value: "",
-      showError: false
+      showError: false,
+      minutes: 0,
+      seconds: 0,
+      givenTime: 10,
+      showDeleteOption: false
     };
   }
 
   //when mounted, check the DB for data and setState
   componentDidMount() {
-
     const dbRef = firebase.database().ref();
 
     dbRef.on("value", response => {
@@ -29,9 +31,10 @@ class App extends React.Component {
       for (let key in data) {
         newState.push({
           key: key,
-          userMessage: data[key]
+          userMessage: data[key].value,
+          likes: data[key].likeCount
         });
-      }      
+      }
 
       this.setState({
         messages: newState
@@ -39,48 +42,98 @@ class App extends React.Component {
     });
   }
 
-// componentDidCatch(error, info) {
-//   // display fallback UI
-//   this.setState({
-//     hasError: true
-//   });
-
-//   logErrorToMyService(error, info)
-// }
-
-addNewInput = (newMessage) => {
-  //??? is this necessary???
-  let currentInput = this.state.value;
-  currentInput = newMessage;
-
-  //add new input the state
-  this.setState({
-    value: currentInput
-  })
-}
-
-updateDB = (event) => {
-  event.preventDefault();
-
-  if (this.state.value) {
-    const dbRef = firebase.database().ref();
-    dbRef.push(this.state.value);
-  } else {
+  addNewInput = currentInput => {
+    //add new input the state
     this.setState({
-      showError: true
-    })
+      value: currentInput
+    });
+  };
+
+  //on click post
+  updateDB = event => {
+    event.preventDefault();
+
+    if (this.state.value) {
+      const dbRef = firebase.database().ref();
+      dbRef.push({ value: this.state.value, likeCount: 0 });
+    } else {
+      this.setState({
+        showError: true
+      });
+    } 
+
+    this.setState({
+      value: ""
+    });
+  };
+
+  toggleErrorMessage = () => {
+    this.setState({
+      showError: !this.state.showError
+    });
+  };
+
+  addNewLikeCount = key => {
+    const dbRef = firebase
+      .database()
+      .ref()
+      .child(key);
+    const dbLikeCount = dbRef.child("likeCount");
+    let updatedCount;
+
+    dbLikeCount.on("value", snapshot => {
+      const currentLikeCount = snapshot.val();
+
+      updatedCount = currentLikeCount + 1;
+
+      return updatedCount;
+    });
+
+    dbLikeCount.set(updatedCount);
+  };
+
+  removeInput = key => {
+    const dbRef = firebase
+      .database()
+      .ref()
+      .child(key);
+
+    dbRef.remove();
+  };
+
+  tick = () => {
+    
+    this.timer= setInterval(() => {      
+        const secondsRemaining = this.state.givenTime;
+
+        if(secondsRemaining > 0) {
+          const newTime = secondsRemaining - 1;
+
+          const min = Math.floor(newTime / 60);
+
+          const sec = Math.floor((newTime / 60 - min) * 60);
+
+          this.setState({
+            minutes: min,
+            seconds: sec,
+            givenTime: newTime,
+            showDeleteOption: true
+          });
+        } else {
+          this.setState({
+            showDeleteOption: false
+          })
+        }
+      }, 1000);
+    
+  };
+
+  stopTimer = () => {
+    clearInterval(this.timer);
+    this.setState({
+      showDeleteOption: false
+    });
   }
-
-  this.setState({
-    value: ""
-  })
-}
-
-toggleErrorMessage = () => {
-  this.setState({
-    showError: !this.state.showError
-  })
-}
 
   render() {
     return (
@@ -91,8 +144,18 @@ toggleErrorMessage = () => {
           value={this.state.value}
           showError={this.state.showError}
           toggleErrorMessage={this.toggleErrorMessage}
+          tick={this.tick}
+          showDeleteOption={this.state.showDeleteOption}
+          minutes={this.state.minutes}
+          seconds={this.state.seconds}
+          removeInput={this.removeInput}
+          messages={this.state.messages}
+          stopTimer={this.stopTimer}
         />
-        <BulletinBoard messages={this.state.messages} />
+        <BulletinBoard
+          messages={this.state.messages}
+          addNewLikeCount={this.addNewLikeCount}
+        />
         <Footer />
       </div>
     );
