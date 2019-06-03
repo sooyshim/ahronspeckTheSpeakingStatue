@@ -12,7 +12,7 @@ class MoreInfo extends React.Component {
             through the speaking statues. Pretending to be a statue, a person would write their opinion and post it on the statue. This tradition continues today in Italy, especially in Rome, and in social media.
           </p>
           <a href="https://twitter.com/scribeaccroupi">
-            Check out my friend
+            Check out my friend{" "}
             <span className="scribe">Scribe Accroupi</span> at the Louvre!
           </a>
         </div>
