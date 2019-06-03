@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ahronspeckTheSpeakingStatue/precache-manifest.d38e0fddef714ae767b806a48c623cd0.js"
+  "/ahronspeckTheSpeakingStatue/precache-manifest.67a0491ad43bf1bf3407fcd70b25eb3f.js"
 );
 
 self.addEventListener('message', (event) => {
