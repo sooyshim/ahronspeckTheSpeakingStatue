@@ -3,6 +3,7 @@ import Header from './Header.js';
 import BulletinBoard from './BulletinBoard.js';
 import Footer from './Footer.js';
 import firebase from '../firebase.js';
+import scrollToComponent from "react-scroll-to-component";
 
 class App extends React.Component {
   constructor() {
@@ -57,6 +58,12 @@ class App extends React.Component {
       const dbRef = firebase.database().ref();
       dbRef.push({ value: this.state.value, likeCount: 0 });
       this.startTimer();
+      scrollToComponent(this.BulletinBoard, {
+        offset: 0,
+        align: "top",
+        duration: 500,
+        ease: "inExpo"
+      })
     } else {
       this.setState({
         showError: true
@@ -161,16 +168,26 @@ class App extends React.Component {
           value={this.state.value}
           showError={this.state.showError}
           toggleErrorMessage={this.toggleErrorMessage}
-          />
-        <BulletinBoard
-          messages={this.state.messages}
-          addNewLikeCount={this.addNewLikeCount}
-          showDeleteOption={this.state.showDeleteOption}
-          minutes={this.state.minutes}
-          seconds={this.state.seconds}
-          removeInput={this.removeInput}
-          stopTimer={this.stopTimer}
         />
+        <main>
+          <h2
+            className="bulletinBoard"
+            ref={h2 => {
+              this.BulletinBoard = h2;
+            }}
+          >
+            - Posted Messages -
+          </h2>
+          <BulletinBoard
+            messages={this.state.messages}
+            addNewLikeCount={this.addNewLikeCount}
+            showDeleteOption={this.state.showDeleteOption}
+            minutes={this.state.minutes}
+            seconds={this.state.seconds}
+            removeInput={this.removeInput}
+            stopTimer={this.stopTimer}
+          />
+        </main>
         <Footer />
       </div>
     );

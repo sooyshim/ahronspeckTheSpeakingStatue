@@ -10,9 +10,8 @@ class BulletinBoard extends React.Component {
     const likeIcon = <FontAwesomeIcon icon={faHandHoldingHeart} />;
 
     return (
-      <main className="bulletinBoard">
+      <section className="bulletinBoard">
         <div className="wrapper">
-          <h2>- Posted Messages -</h2>
           <ShowDeleteOption
             showDeleteOption={this.props.showDeleteOption}
             minutes={this.props.minutes}
@@ -24,25 +23,25 @@ class BulletinBoard extends React.Component {
           <ul>
             {this.props.messages.map(message => {
               return (
-                  <li key={message.key} tabIndex="0">
-                    <img src={washiTape} alt="" />
-                    <div className="messageContainer">
-                      <p>{message.userMessage}</p>
-                      <button
-                        onClick={() => {
-                          this.props.addNewLikeCount(message.key);
-                        }}
-                      >
-                        <i aria-hidden="true">{likeIcon}</i>
-                        <p>{message.likes}</p>
-                      </button>
-                    </div>
-                  </li>
+                <li key={message.key} tabIndex="0">
+                  <img src={washiTape} alt="" />
+                  <div className="messageContainer">
+                    <p>{message.userMessage}</p>
+                    <button
+                      onClick={() => {
+                        this.props.addNewLikeCount(message.key);
+                      }}
+                    >
+                      <i aria-hidden="true">{likeIcon}</i>
+                      <p>{message.likes}</p>
+                    </button>
+                  </div>
+                </li>
               );
             })}
           </ul>
         </div>
-      </main>
+      </section>
     );
   }
 }
