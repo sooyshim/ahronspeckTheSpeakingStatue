@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "44cd04a60925f62c3b12d69196cc6344",
+    "revision": "43bee016840aabe2b68f536f88385fb0",
     "url": "/ahronspeckTheSpeakingStatue/index.html"
   },
   {
-    "revision": "75033815b20ad40e0bbf",
+    "revision": "3fc815ec4d8d78165a16",
     "url": "/ahronspeckTheSpeakingStatue/static/css/main.d3e1ef60.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ahronspeckTheSpeakingStatue/static/js/2.6561b881.chunk.js"
   },
   {
-    "revision": "75033815b20ad40e0bbf",
-    "url": "/ahronspeckTheSpeakingStatue/static/js/main.dc859cc9.chunk.js"
+    "revision": "3fc815ec4d8d78165a16",
+    "url": "/ahronspeckTheSpeakingStatue/static/js/main.630d47c4.chunk.js"
   },
   {
     "revision": "1d69b71d973726026d1e",
