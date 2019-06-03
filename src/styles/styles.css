@@ -85,7 +85,8 @@ a {
 }
 
 textarea:focus,
-button:focus {
+button:focus,
+li:focus {
   outline: none;
 }
 
@@ -183,7 +184,7 @@ picture .statueImg {
   padding: 10px 10px 50px;
   border: 5px solid var(--black);
   border-radius: 10px;
-  background-color: var(--darkBlue);
+  background-color: var(--yellow);
   color: var(--black);
 
   display: flex;
@@ -290,18 +291,21 @@ button {
   display: block;
   border: none;
   border-radius: 100px; 
-  background-color: var(--blue);
   font-size: 2.0rem;
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
 
-button:hover,
-button:focus {
+header button {
+  background-color: var(--blue);
+}
+
+header button:hover,
+header button:focus {
   background-color: var(--darkBlue);
 }
 
-button:active {
+header button:active {
   background-color: var(--black);
   border: 5px solid var(--darkBlue);
   color: var(--darkBlue);
@@ -374,6 +378,9 @@ li,
   color: var(--black);
   font-size: 1.2rem;
   overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 li:focus,
@@ -389,6 +396,10 @@ li:focus,
   justify-content: space-between;
 }
 
+.messageContainer p:first-child {
+  min-height: 210px;
+}
+
 .deleteOption {
   background-color: var(--darkBlue);
 }
@@ -396,7 +407,6 @@ li:focus,
 /* delete option buttons*/
 .optionButtons {
   font-size: 1.6rem;
-  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -448,7 +458,7 @@ li img {
 /* like button */
 li button {
   border: none;
-  border-radius: none;
+  border-radius: 0;
   width: 70px;
   display: flex;
   align-items: center;
@@ -462,15 +472,6 @@ li button i {
   transition: transform 0.2s linear;
 }
 
-li button:hover,
-li button:focus,
-li button:active  {
-  cursor: default;
-  background-color: transparent;
-  border: none;
-  color: var(--black);
-}
-
 li button:hover i,
 li button:focus i {
   cursor: pointer;
@@ -481,7 +482,6 @@ li button:focus i {
 li button:active i {
   color: tomato;
 }
-
 
 /* footer */
 footer {
@@ -607,6 +607,10 @@ footer p {
     font-size: 2.4rem;
   }
 
+  .errorMessage button {
+    margin: 0 auto;
+  }
+
   .moreInfoContent {
     font-size: 1.6rem;
     z-index: 200;
@@ -644,29 +648,25 @@ footer p {
 @media (min-width: 1200px) {
   /* header */
   h1 {
-    font-size: 4.4rem;
+    font-size: 3.6rem;
   }
 
   .headerContent .subTitle {
-    margin-top: 50px;
-  }
-
-  .headerContent p,
-  label {
-    font-size: 2.0rem;
+    margin-top: 30px;
   }
 
   form {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .inputArea,
   .parchemin {
-    height: 300px;
+    height: 200px;
   } 
 
   textarea {
-    height: 200px;
+    height: 150px;
+    top: 20px;
   }
 
   header button {

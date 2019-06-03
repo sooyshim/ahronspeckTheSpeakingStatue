@@ -74,8 +74,9 @@ class Header extends React.Component {
             </p>
             <MessageGenerator
               addNewInput={this.props.addNewInput}
-              updateDB={this.props.updateDB}
+              handlePostClick={this.props.handlePostClick}
               value={this.props.value}
+              disableButton={this.props.disableButton}
             />
           </div>
           <ErrorMessage

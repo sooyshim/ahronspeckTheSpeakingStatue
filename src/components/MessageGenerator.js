@@ -27,9 +27,9 @@ class MessageGenerator extends React.Component {
           />
           <img className="parchemin" src={parchemin} alt="" />
         </div>
-        <button
+        <button disabled={this.props.disableButton}
           onClick={event => {
-            this.props.updateDB(event);
+            this.props.handlePostClick(event);
           }}
         >
           Post
