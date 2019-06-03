@@ -6,8 +6,8 @@ class ErrorMessage extends React.Component {
       return (
         <React.Fragment>
           <div className="errorMessage">
-            <h1>Please enter your message!</h1>
-            <button onClick={this.props.toggleErrorMessage}>Close</button>
+            <p>Please enter your message!</p>
+            <button onClick={this.props.toggleErrorMessage} >Close</button>
           </div>
         </React.Fragment>
       );

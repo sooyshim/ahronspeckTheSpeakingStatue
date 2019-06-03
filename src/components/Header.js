@@ -1,9 +1,9 @@
 import React from 'react';
-import small from '../styles/image/small.png';
-import large from '../styles/image/large.png';
-import MessageGenerator from './MessageGenerator';
+import MessageGenerator from './MessageGenerator.js';
 import ErrorMessage from "./ErrorMessage.js";
 import ShowDeleteOption from "./ShowDeleteOption.js"
+import small from '../styles/image/small.png';
+import large from '../styles/image/large.png';
 
 class Header extends React.Component {
   render() {
@@ -34,26 +34,17 @@ class Header extends React.Component {
             </p>
             <p>
               Post your opinions as if you are Ahornspeck, the speaking
-              statue!
+              statue! 
             </p>
             <MessageGenerator
               addNewInput={this.props.addNewInput}
               updateDB={this.props.updateDB}
               value={this.props.value}
-              tick={this.props.tick}
             />
           </div>
           <ErrorMessage
             showError={this.props.showError}
             toggleErrorMessage={this.props.toggleErrorMessage}
-          />
-          <ShowDeleteOption
-            showDeleteOption={this.props.showDeleteOption}
-            minutes={this.props.minutes}
-            seconds={this.props.seconds}
-            removeInput={this.props.removeInput}
-            messages={this.props.messages}
-            stopTimer={this.props.stopTimer}
           />
         </div>
       </header>

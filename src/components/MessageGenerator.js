@@ -19,7 +19,7 @@ class MessageGenerator extends React.Component {
             id="userMessage"
             cols="30"
             rows="10"
-            maxLength="200"
+            maxLength="300"
             required
             value={this.props.value}
             onChange={this.handleChange}
@@ -30,7 +30,6 @@ class MessageGenerator extends React.Component {
         <button
           onClick={event => {
             this.props.updateDB(event);
-            this.props.tick();
           }}
         >
           Post
