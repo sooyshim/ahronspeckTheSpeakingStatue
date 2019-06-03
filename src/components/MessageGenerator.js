@@ -11,7 +11,8 @@ class MessageGenerator extends React.Component {
   render() {
     return (
       <form action="">
-        <label htmlFor="userMessage">Enter your opinion here: </label>
+        <label htmlFor="userMessage">Enter your opinion here:</label>
+        <p className="textareaInfo">(300 characters/ 3 min to delete)</p>
         <div className="inputArea">
           <textarea
             name="userMessage"

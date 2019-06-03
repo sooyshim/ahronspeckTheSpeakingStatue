@@ -145,7 +145,8 @@ class App extends React.Component {
             }
           } else {
             this.setState({
-              showDeleteOption: false
+              showDeleteOption: false,
+              givenTime: 180
             })
           }
         }, 1000);
@@ -155,7 +156,8 @@ class App extends React.Component {
   stopTimer = () => {
     clearInterval(this.timer);
     this.setState({
-      showDeleteOption: false
+      showDeleteOption: false,
+      givenTime: 180
     });
   }
 
@@ -169,15 +171,12 @@ class App extends React.Component {
           showError={this.state.showError}
           toggleErrorMessage={this.toggleErrorMessage}
         />
-        <main>
-          <h2
-            className="bulletinBoard"
-            ref={h2 => {
-              this.BulletinBoard = h2;
-            }}
-          >
-            - Posted Messages -
-          </h2>
+        <main
+          className="bulletinBoard"
+          ref={h2 => {
+            this.BulletinBoard = h2;
+          }}
+        >
           <BulletinBoard
             messages={this.state.messages}
             addNewLikeCount={this.addNewLikeCount}

@@ -1,12 +1,35 @@
 import React from 'react';
 import MessageGenerator from './MessageGenerator.js';
 import ErrorMessage from "./ErrorMessage.js";
-import ShowDeleteOption from "./ShowDeleteOption.js"
+import MoreInfo from "./MoreInfo.js";
 import small from '../styles/image/small.png';
 import large from '../styles/image/large.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Header extends React.Component {
+  constructor() {
+    super(); 
+    this.state={
+      showInfo: false
+    }
+  }
+
+  handleClick = () => {
+    this.setState({
+      showInfo:true
+    })
+  }
+
+  toggleMoreInfo = () => {
+    this.setState({
+      showInfo: false
+    })
+  }
+
   render() {
+    const infoIcon = <FontAwesomeIcon icon={faInfoCircle} />;
+
     return (
       <header className="headerContainer">
         <div className="wrapper">
@@ -20,9 +43,22 @@ class Header extends React.Component {
             <img
               src={small}
               alt="A bust of a statue, presumably called Ahornspeck"
-              className="smallImg"
+              className="statueImg"
             />
           </picture>
+          <div className="moreInfoContainer">
+            <button
+              className="moreInfo"
+              aria-label="moreInfo"
+              onClick={this.handleClick}
+            >
+              <i aria-hidden="true">{infoIcon}</i>
+            </button>
+            <MoreInfo
+              showInfo={this.state.showInfo}
+              toggleMoreInfo={this.toggleMoreInfo}
+            />
+          </div>
           <div className="headerContent">
             <h1>
               Ahornspeck <br />
@@ -34,7 +70,7 @@ class Header extends React.Component {
             </p>
             <p>
               Post your opinions as if you are Ahornspeck, the speaking
-              statue! 
+              statue!
             </p>
             <MessageGenerator
               addNewInput={this.props.addNewInput}

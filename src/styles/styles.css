@@ -9,7 +9,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand|Play&display=swap');
 
-
 /* Variables */
 :root {
   --black: #333;
@@ -85,6 +84,11 @@ a {
   margin: 0 auto;
 }
 
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 /* animation */
 @keyframes blink {   
   from {
@@ -105,21 +109,106 @@ header .wrapper {
   position: relative;
 }
 
-/* statue image */
-picture {
+/* statue image and info icon */
+picture,
+.moreInfo {
   position: absolute;
+}
+
+picture {
   top: 0;
   left: 0;
 }
 
-picture .smallImg {
+picture .statueImg {
   width: 10%;
   padding-top: 15px;
 }
 
+/* more info button &exit button*/
+.moreInfo,
+.exitButton {
+  width: 50px;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.moreInfo {
+  right: 0;
+  top: 7px;
+}
+.moreInfo:hover,
+.moreInfo:focus,
+.moreInfo:active,
+.exitButton:hover,
+.exitButton:focus,
+.exitButton:active {
+  background-color: transparent;
+  border: none;
+}
+
+.moreInfo i {
+  font-size: 2.0rem;
+  color: var(--white);
+}
+
+.moreInfo:hover i,
+.moreInfo:focus i {
+  color: var(--neonBlue);
+}
+
+.moreInfo:active i {
+  color: var(--darkBlue);
+}
+
+.exitButton {
+  align-self: flex-end;
+  height: 30px;
+}
+
+.exitButton:hover,
+.exitButton:focus {
+  color: var(--red);
+  transform: scale(1.3);
+}
+
+.exitButton:active {
+  transform: scale(1.5);
+}
+
+/* more info text content */
+.moreInfoContent {
+  position: absolute;
+  top: 70px;
+  padding: 10px 10px 50px;
+  border: 5px solid var(--black);
+  border-radius: 10px;
+  background-color: var(--darkBlue);
+  color: var(--black);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.moreInfoContent p {
+  margin: 20px 0;
+}
+
+.moreInfoContent .scribe {
+  text-decoration: underline;
+}
+
+.moreInfoContent a:hover .scribe,
+.moreInfoContent a:focus .scribe {
+  color: var(--red);
+  text-shadow: 0.5px 0.5px 0.5px var(--black);
+}
+
+.moreInfoContent a:active .scribe {
+  color: var(--neonBlue);
+}
+
 /* header text content */
-
-
 .headerContent {
   padding-top: 20%;
 }
@@ -159,7 +248,6 @@ textarea {
   left: 10%;
   width: 80%;
   height: 400px;
-  outline: 0;
   padding: 5px;
   background-color: transparent;
   font-size: 1.4rem;
@@ -186,6 +274,11 @@ textarea:invalid {
   border: 1px dotted var(--black);
 }
 
+.headerContent .textareaInfo {
+  margin: 5px 0;
+  font-size: 1.0rem;
+  text-align: left;
+}
 /* buttons */
 .inputArea button {
   z-index: 200;
@@ -273,7 +366,7 @@ li,
 .deleteOption {
   position: relative;
   box-shadow: inset 0 0 7px var(--black);
-  border: none;
+  border: 3px solid var(--black);
   border-radius: 5px;
   margin-top: 50px;
   padding: 20px;
@@ -285,7 +378,7 @@ li,
 
 li:focus,
 .deleteOption:focus {
-  box-shadow: inset 1px 1px 20px var(--black);
+  border: 3px solid var(--red);
 }
 
 .messageContainer,
@@ -300,21 +393,48 @@ li:focus,
   background-color: var(--darkBlue);
 }
 
-/* delete option */
-.deleteOption button {
+/* delete option buttons*/
+.optionButtons {
   font-size: 1.6rem;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.optionButtons button {
   border: 5px solid var(--black);
 }
 
-.deleteOption button:hover,
-.deleteOption button:focus {
+.deleteButton {
+  margin-bottom: 10px;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
   background-color: var(--red);
   color: var(--white);
 }
 
-.deleteOption button:active {
-  background-color: var(--black);
+.deleteButton:active {
+  background-color: var(--white);
+  border: 5px solid var(--red);
+  color: var(--black);
 }
+
+.postButton:hover,
+.postButton:focus {
+  background-color: var(--neonBlue);
+  color: var(--white);
+}
+
+.postButton:active {
+  background-color: var(--white);
+  border: 5px solid var(--neonBlue);
+  color: var(--black);
+}
+
 
 /* washi tape */
 li img {
@@ -348,7 +468,7 @@ li button:active  {
   cursor: default;
   background-color: transparent;
   border: none;
-  color: var(--black)
+  color: var(--black);
 }
 
 li button:hover i,
@@ -384,7 +504,7 @@ footer p {
 @media (min-width: 700px) {
 
   /* header */
-  picture .smallImg {
+  picture .statueImg {
     width: 13%;
   }
 
@@ -394,10 +514,10 @@ footer p {
 
   .headerContent p,
   label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
-  header button {
+  form button {
     width: 80%;
     margin: 0 auto;
   }
@@ -416,6 +536,11 @@ footer p {
     font-size: 1.7rem;
   }
   
+  .moreInfoContent {
+    font-size: 1.4rem;
+  }
+
+
   /* main */
   .deleteOption,
   li {
@@ -435,7 +560,7 @@ footer p {
   header .wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 50px 0;
+    padding: 20px 0;
   }
 
   picture {
@@ -443,7 +568,7 @@ footer p {
     margin-right: 80px;
   }
 
-  picture .smallImg {
+  picture .statueImg {
     width: 100%;
     height: 100vh;
   }
@@ -451,9 +576,27 @@ footer p {
   .headerContent {
     padding-top: 0;
   }
+  
+  .headerContent .subTitle {
+    margin-top: 40px;
+  }
 
   .headerContent p {
     text-align: left;
+  }
+
+  form {
+    margin-top: 40px;
+  }
+
+  .inputArea,
+  .parchemin {
+    height: 320px;
+  } 
+
+  textarea {
+    height: 230px;
+    font-size: 1.4rem;
   }
 
   .errorMessage {
@@ -462,6 +605,15 @@ footer p {
 
   .errorMessage p {
     font-size: 2.4rem;
+  }
+
+  .moreInfoContent {
+    font-size: 1.6rem;
+    z-index: 200;
+  }
+
+  .moreInfoContent p {
+    margin: 30px 10px 30px;
   }
 
   /* main */
@@ -476,6 +628,17 @@ footer p {
   .deleteOption {
     width: 56%;
   }
+
+  .optionButtons {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .deleteButton {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -483,21 +646,27 @@ footer p {
   h1 {
     font-size: 4.4rem;
   }
+
   .headerContent .subTitle {
-    margin-top: 80px;
+    margin-top: 50px;
+  }
+
+  .headerContent p,
+  label {
+    font-size: 2.0rem;
   }
 
   form {
-    margin-top: 100px;
+    margin-top: 70px;
   }
 
   .inputArea,
   .parchemin {
-    height: 350px;
+    height: 300px;
   } 
 
   textarea {
-    height: 250px;
+    height: 200px;
   }
 
   header button {
