@@ -390,10 +390,13 @@ li:focus,
 
 .messageContainer,
 .deleteOption {
-  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.messageContainer {
+  min-height: 250px;
 }
 
 .messageContainer p:first-child {
@@ -402,6 +405,10 @@ li:focus,
 
 .deleteOption {
   background-color: var(--darkBlue);
+}
+
+.deleteOption h3 {
+  margin-bottom: 0;
 }
 
 /* delete option buttons*/
@@ -415,6 +422,7 @@ li:focus,
 
 .optionButtons button {
   border: 5px solid var(--black);
+  background-color: var(--blue);
 }
 
 .deleteButton {
