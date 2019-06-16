@@ -1,34 +1,11 @@
 import React from 'react';
 import MessageGenerator from './MessageGenerator.js';
 import ErrorMessage from "./ErrorMessage.js";
-import MoreInfo from "./MoreInfo.js";
 import small from './images/small.png';
 import large from './images/large.png';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Header extends React.Component {
-  // constructor() {
-  //   super(); 
-  //   this.state={
-  //     showInfo: false
-  //   }
-  // }
-
-  // handleClick = () => {
-  //   this.setState({
-  //     showInfo:true
-  //   })
-  // }
-
-  // toggleMoreInfo = () => {
-  //   this.setState({
-  //     showInfo: false
-  //   })
-  // }
-
   render() {
-    const infoIcon = <FontAwesomeIcon icon={faInfoCircle} />;
 
     return (
       <header className="headerContainer">
@@ -46,19 +23,6 @@ class Header extends React.Component {
               className="statueImg"
             />
           </picture>
-          {/* <div className="moreInfoContainer">
-            <button
-              className="moreInfo"
-              aria-label="moreInfo"
-              onClick={this.handleClick}
-            >
-              <i aria-hidden="true">{infoIcon}</i>
-            </button>
-            <MoreInfo
-              showInfo={this.state.showInfo}
-              toggleMoreInfo={this.toggleMoreInfo}
-            />
-          </div> */}
           <div className="headerContent">
             <h1>
               Ahornspeck:
