@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ahronspeckTheSpeakingStatue/static/css/main.47212e0e.chunk.css",
+    "main.css": "/ahronspeckTheSpeakingStatue/static/css/main.175274ac.chunk.css",
     "main.js": "/ahronspeckTheSpeakingStatue/static/js/main.0a418e62.chunk.js",
     "main.js.map": "/ahronspeckTheSpeakingStatue/static/js/main.0a418e62.chunk.js.map",
     "runtime~main.js": "/ahronspeckTheSpeakingStatue/static/js/runtime~main.ab8e9e75.js",
@@ -8,9 +8,9 @@
     "static/js/2.700184d3.chunk.js": "/ahronspeckTheSpeakingStatue/static/js/2.700184d3.chunk.js",
     "static/js/2.700184d3.chunk.js.map": "/ahronspeckTheSpeakingStatue/static/js/2.700184d3.chunk.js.map",
     "index.html": "/ahronspeckTheSpeakingStatue/index.html",
-    "precache-manifest.6c4f189987c02d717ec27094b97cce0b.js": "/ahronspeckTheSpeakingStatue/precache-manifest.6c4f189987c02d717ec27094b97cce0b.js",
+    "precache-manifest.0c222ef7df0e95bbdb3fbbd96a577881.js": "/ahronspeckTheSpeakingStatue/precache-manifest.0c222ef7df0e95bbdb3fbbd96a577881.js",
     "service-worker.js": "/ahronspeckTheSpeakingStatue/service-worker.js",
-    "static/css/main.47212e0e.chunk.css.map": "/ahronspeckTheSpeakingStatue/static/css/main.47212e0e.chunk.css.map",
+    "static/css/main.175274ac.chunk.css.map": "/ahronspeckTheSpeakingStatue/static/css/main.175274ac.chunk.css.map",
     "static/media/large.png": "/ahronspeckTheSpeakingStatue/static/media/large.5925c3da.png",
     "static/media/small.png": "/ahronspeckTheSpeakingStatue/static/media/small.4c861d02.png"
   }
