@@ -1,6 +1,6 @@
 import React from 'react';
 import DeleteOption from './DeleteOption.js';
-import washiTape from "../styles/image/washiTape.png";
+import washiTape from "./images/washiTape.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,7 +11,7 @@ class BulletinBoard extends React.Component {
     return (
       <section className="bulletinBoard">
         <div className="wrapper">
-          <h2>- Posted Messages -</h2>
+          <h2>Posted Messages</h2>
           <DeleteOption
             showDeleteOption={this.props.showDeleteOption}
             minutes={this.props.minutes}

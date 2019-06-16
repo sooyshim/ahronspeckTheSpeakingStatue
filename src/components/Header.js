@@ -2,30 +2,30 @@ import React from 'react';
 import MessageGenerator from './MessageGenerator.js';
 import ErrorMessage from "./ErrorMessage.js";
 import MoreInfo from "./MoreInfo.js";
-import small from '../styles/image/small.png';
-import large from '../styles/image/large.png';
+import small from './images/small.png';
+import large from './images/large.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Header extends React.Component {
-  constructor() {
-    super(); 
-    this.state={
-      showInfo: false
-    }
-  }
+  // constructor() {
+  //   super(); 
+  //   this.state={
+  //     showInfo: false
+  //   }
+  // }
 
-  handleClick = () => {
-    this.setState({
-      showInfo:true
-    })
-  }
+  // handleClick = () => {
+  //   this.setState({
+  //     showInfo:true
+  //   })
+  // }
 
-  toggleMoreInfo = () => {
-    this.setState({
-      showInfo: false
-    })
-  }
+  // toggleMoreInfo = () => {
+  //   this.setState({
+  //     showInfo: false
+  //   })
+  // }
 
   render() {
     const infoIcon = <FontAwesomeIcon icon={faInfoCircle} />;
@@ -46,7 +46,7 @@ class Header extends React.Component {
               className="statueImg"
             />
           </picture>
-          <div className="moreInfoContainer">
+          {/* <div className="moreInfoContainer">
             <button
               className="moreInfo"
               aria-label="moreInfo"
@@ -58,18 +58,24 @@ class Header extends React.Component {
               showInfo={this.state.showInfo}
               toggleMoreInfo={this.toggleMoreInfo}
             />
-          </div>
+          </div> */}
           <div className="headerContent">
             <h1>
-              Ahornspeck <br />
+              Ahornspeck:
               The Speaking Statue
             </h1>
-            <p className="subTitle">
-              Inspired by the Talking Statues of Rome, this virtual space
-              provides a room for public opinion.
+            <p className="explanation explanationOne">
+              During the Italian Renaissance, people anonymously expressed
+              their discontentment towards their governing institutions
+              through speaking statues. 
             </p>
-            <p>
-              Post your opinions as if you are Ahornspeck, the speaking
+            <p className="explanation explanationTwo">
+              Pretending to be a statue, people wrote their opinions and posted them on the statue. 
+              This tradition continues today in Italy, especially in Rome, and in social media.
+            </p>
+            <p className="explanation explanationThree">
+              Inspired by the Talking Statues of Rome, this virtual space
+              provides a room for public opinion. Post your opinions as if you are Ahornspeck, the speaking
               statue!
             </p>
             <MessageGenerator

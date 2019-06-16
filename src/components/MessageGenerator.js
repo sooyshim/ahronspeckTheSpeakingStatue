@@ -1,6 +1,4 @@
 import React from 'react';
-import parchemin from "../styles/image/parchemin.png";
-
 
 class MessageGenerator extends React.Component {
   handleChange = event => {
@@ -11,8 +9,8 @@ class MessageGenerator extends React.Component {
   render() {
     return (
       <form action="">
-        <label htmlFor="userMessage">Enter your opinion here:</label>
-        <p className="textareaInfo">(300 characters/ 3 min to delete)</p>
+        <label htmlFor="userMessage">Have your say:</label>
+        <p className="textareaInfo">(Maximum 300 characters/ 3 mins to delete)</p>
         <div className="inputArea">
           <textarea
             name="userMessage"
@@ -25,7 +23,6 @@ class MessageGenerator extends React.Component {
             onChange={this.handleChange}
             placeholder="I, Ahronspeck,"
           />
-          <img className="parchemin" src={parchemin} alt="" />
         </div>
         <button disabled={this.props.disableButton}
           onClick={event => {
