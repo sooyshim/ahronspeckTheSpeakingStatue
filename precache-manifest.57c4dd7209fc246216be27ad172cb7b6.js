@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "266f12202836d42b43cfcb2102c364fb",
+    "revision": "f1a8a22ac8a3ff5add4387709c96db79",
     "url": "/ahronspeckTheSpeakingStatue/index.html"
   },
   {
-    "revision": "e2133582e41b3328b767",
-    "url": "/ahronspeckTheSpeakingStatue/static/css/main.73550a5e.chunk.css"
+    "revision": "6a891654160cddaf275c",
+    "url": "/ahronspeckTheSpeakingStatue/static/css/main.25c47fea.chunk.css"
   },
   {
     "revision": "6339a5a17206fced3696",
     "url": "/ahronspeckTheSpeakingStatue/static/js/2.51e026d5.chunk.js"
   },
   {
-    "revision": "e2133582e41b3328b767",
+    "revision": "6a891654160cddaf275c",
     "url": "/ahronspeckTheSpeakingStatue/static/js/main.7586d960.chunk.js"
   },
   {
