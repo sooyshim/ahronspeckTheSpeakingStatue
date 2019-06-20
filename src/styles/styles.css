@@ -226,8 +226,8 @@ button:active {
   border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 85%;
+  transform: translate(-50%, -85%);
   z-index: 100;
   background-color: var(--accent);
   text-align: center;
@@ -469,6 +469,8 @@ footer p {
 
   .errorMessage {
     width: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .errorMessage p {
