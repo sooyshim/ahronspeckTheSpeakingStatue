@@ -103,7 +103,7 @@ li:focus {
 /* header */
 header {
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 0px;
 }
 
 header .wrapper {
@@ -142,14 +142,22 @@ label {
 
 .explanation,
 .textareaInfo {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
 }
 
 .explanationOne {
   font-family: var(--serif);
   font-size: 1.6rem;
-  margin: 50px auto;
+  margin: 30px auto;
   line-height: 1.2;
+}
+
+.explanationTwo {
+  margin-bottom: 0;
+}
+
+.explanationThree {
+  margin-top: 20px;
 }
 
 .textareaInfo {
@@ -158,7 +166,7 @@ label {
 
 /* input(textarea) */
 form {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 textarea {
@@ -167,6 +175,7 @@ textarea {
   box-shadow: none !important;
   background-color: var(--secondary);
   font-size: 1.0rem;
+  min-height: 170px;
 }
 
 textarea:focus {
@@ -418,7 +427,7 @@ footer p {
   header .wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   picture {
@@ -442,6 +451,10 @@ footer p {
 
   .textareaInfo {
     margin-bottom: 25px;
+  }
+
+  textarea {
+    min-height: 150px;
   }
 
   header button {
@@ -498,17 +511,13 @@ footer p {
 @media (min-width: 1200px) {
   /* header */
 
-  header {
-    padding-top: 50px;
-  }
-
   .wrapper {
     width: 85%;
   }
 
   h1,
   h2 {
-    font-size: 2.0rem;
+    font-size: 1.8rem;
   }
   
   .explanation {
@@ -516,8 +525,12 @@ footer p {
   }
 
   .explanationOne {
-    font-size: 3.2rem;
-    margin: 50px 0;
+    font-size: 2.6rem;
+    margin: 40px 0;
+  }
+
+  .explanationOne {
+    line-height: 1.1;
   }
 
   header picture {
@@ -527,6 +540,10 @@ footer p {
   header button {
     width: 50%;
     margin: 15px auto;
+  }
+
+  textarea {
+    max-height: 100px;
   }
 
   /* main */
