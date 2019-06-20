@@ -221,16 +221,15 @@ button:active {
 /* error message */
 .errorMessage {
   width: 95%;
-  padding: 30px 15px;
+  padding: 50px 15px;
   margin: 0 auto;
   border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 85%;
-  transform: translate(-50%, -85%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 100;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--accent);
   text-align: center;
 }
 
@@ -239,6 +238,13 @@ button:active {
   font-size: 1.2rem;
   font-family: var(--lgFont);
 }
+
+.errorMessage button {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+
 
 /* delete option */
 /* main style */
@@ -466,7 +472,7 @@ footer p {
   }
 
   .errorMessage p {
-    font-size: 1.5rem;
+    font-size: 2.0rem;
   }
 
   .errorMessage button {
