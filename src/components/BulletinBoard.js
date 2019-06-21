@@ -12,6 +12,7 @@ class BulletinBoard extends React.Component {
       <section className="bulletinBoard">
         <div className="wrapper">
           <h2>Posted Messages</h2>
+          <p className="explanation voteExplanation">Vote for opinions by clicking the hand button</p>
           <DeleteOption
             showDeleteOption={this.props.showDeleteOption}
             minutes={this.props.minutes}

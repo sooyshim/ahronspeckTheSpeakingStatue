@@ -8,7 +8,7 @@ const Footer = () => {
         <a href="https://www.freepik.com/free-photos-vectors/border" tabIndex="-1">
           Border vector created by vectorpouch - www.freepik.com
         </a>
-        <p>All offensive comments are subject to deletion by the administrator.</p>
+        <p>All comments are subject to deletion by the administrator.</p>
       </div>
     </footer>
   );

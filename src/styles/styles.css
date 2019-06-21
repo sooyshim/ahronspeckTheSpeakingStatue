@@ -250,7 +250,13 @@ button:active {
 /* main style */
 
 main {
-  margin-bottom: 70px;
+  margin: 150px 0 70px;
+}
+
+.voteExplanation {
+  margin-top: 15px;
+  color: var(--white);
+  text-align: center;
 }
 
 ul {
