@@ -12,6 +12,6 @@ Inspired by the Speaking Statues of Rome, this app provides a virtual space for 
 
 ## Programming Languages
 
+- React / Javascript
 - HTML
-- CSS/SASS
-- React
+- CSS / SASS
