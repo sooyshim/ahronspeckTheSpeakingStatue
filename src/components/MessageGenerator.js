@@ -1,11 +1,11 @@
 import React from 'react';
 
 class MessageGenerator extends React.Component {
-  handleChange = event => {
+  handleChange = (event) => {
     const userInput = event.target.value;
     this.props.addNewInput(userInput);
   };
-
+  
   render() {
     return (
       <form action="">
@@ -24,8 +24,10 @@ class MessageGenerator extends React.Component {
             placeholder="I, Ahronspeck,"
           />
         </div>
-        <button disabled={this.props.disableButton}
-          onClick={event => {
+        <button
+          type="button"
+          disabled={this.props.disableButton}
+          onClick={(event) => {
             this.props.handlePostClick(event);
           }}
         >
