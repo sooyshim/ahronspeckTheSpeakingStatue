@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
 import DeleteOption from './DeleteOption.js';
@@ -9,7 +10,6 @@ const BulletinBoard = ({
 }) => {
   const likeIcon = <FontAwesomeIcon icon={faHandHoldingHeart} />;
   return (
-
     <section className="bulletinBoard">
       <div className="wrapper">
         <h2>Posted Messages</h2>
@@ -46,5 +46,14 @@ const BulletinBoard = ({
   );
 };
 
+BulletinBoard.propTypes = {
+  showDeleteOption: PropTypes.bool,
+  minutes: PropTypes.number,
+  seconds: PropTypes.number,
+  removeInput: PropTypes.func,
+  messages: PropTypes.array,
+  stopTimer: PropTypes.func,
+  addNewLikeCount: PropTypes.func,
+};
 
 export default BulletinBoard;

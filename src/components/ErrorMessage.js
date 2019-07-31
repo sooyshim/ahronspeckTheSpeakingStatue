@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ErrorMessage = ({ showError, toggleErrorMessage }) => {
   if (showError) {
@@ -12,6 +13,11 @@ const ErrorMessage = ({ showError, toggleErrorMessage }) => {
     );
   }
   return (null);
+};
+
+ErrorMessage.propTypes = {
+  showError: PropTypes.bool,
+  toggleErrorMessage: PropTypes.func,
 };
 
 export default ErrorMessage;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MessageGenerator extends React.Component {
   handleChange = (event) => {
@@ -37,5 +38,12 @@ class MessageGenerator extends React.Component {
     );
   }
 }
+
+MessageGenerator.propTypes = {
+  addNewInput: PropTypes.func,
+  handlePostClick: PropTypes.func,
+  value: PropTypes.string,
+  disableButton: PropTypes.bool,
+};
 
 export default MessageGenerator;

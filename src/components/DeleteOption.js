@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DeleteOption = ({
   messages, showDeleteOption, minutes, seconds, stopTimer, removeInput,
@@ -38,5 +39,13 @@ const DeleteOption = ({
   return null;
 };
 
+DeleteOption.propTypes = {
+  showDeleteOption: PropTypes.bool,
+  minutes: PropTypes.number,
+  seconds: PropTypes.number,
+  removeInput: PropTypes.func,
+  messages: PropTypes.array,
+  stopTimer: PropTypes.func,
+};
 
 export default DeleteOption;

@@ -1,6 +1,7 @@
 import React from 'react';
-import MessageGenerator from './MessageGenerator.js';
-import ErrorMessage from './ErrorMessage.js';
+import PropTypes from 'prop-types';
+import MessageGenerator from './MessageGenerator';
+import ErrorMessage from './ErrorMessage';
 import small from './images/small.png';
 import large from './images/large.png';
 
@@ -56,5 +57,13 @@ const Header = ({
   </header>
 );
 
+Header.propTypes = {
+  addNewInput: PropTypes.func,
+  handlePostClick: PropTypes.func,
+  value: PropTypes.string,
+  disableButton: PropTypes.bool,
+  showError: PropTypes.bool,
+  toggleErrorMessage: PropTypes.func,
+};
 
 export default Header;
